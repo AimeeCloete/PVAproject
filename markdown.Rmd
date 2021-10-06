@@ -1,0 +1,49 @@
+---
+title: "PVA Project"
+author: "Aimee"
+date: "06/10/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+$$\mathbf{A} = \begin{pmatrix}
+  0& 0 & f{1} \times \phi J  & f{2} \times \phi J \\ 
+  \phi J & \phi S \times (1-m) & 0 & 0 \\
+ 0 &  m \times \phi S & \phi M \times (1-g) & 0\\
+  0 & 0 & g \times\phi M & \phi L\\
+  \end{pmatrix}$$
+```{r}
+# parameter values
+phi_j <- 0.6
+phi_s <- 0.7
+phi_m <- 0.8
+phi_l <- 0.9
+f1 <- 7.5
+f2 <- 9.5
+m <- 0.167
+g <- 0.25
+
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
