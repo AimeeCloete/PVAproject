@@ -1,0 +1,41 @@
+---
+title: "Tikz"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+install.packages("tiks")
+install.packages("magick")
+install.packages("pdftools")
+```
+
+```{r lifecycle2age3, echo=F, engine='tikz', fig.ext='png', out.width='60%', fig.align='center', fig.cap='Life cycle graph for a population with two age classes, juvenile and adult.'}
+\tikzstyle{st}=[circle, fill=blue!20, minimum size=1.7cm]
+
+\begin{tikzpicture}[->]
+
+\node[st,draw] (A) at (2,5) {};
+\path (2,5) node{newborn};
+\node[st,draw] (B) at (5,5) {};
+\path (5,5) node{small};
+\node[st,draw] (C) at (8,5) {};
+\path (8,5) node{medium};
+\node[st,draw] (D) at (11,5) {};
+\path (11,5) node{large};
+
+
+
+\path (A) edge [right]  node[below] {$\phi_J$} (B);
+\path (B) edge [right]  node[below] {$ m \times \phi_S$} (C);
+\path (C) edge [right]  node[below] {$g \times \phi_M $} (D);
+\path (C) edge [bend right]  node[above] {$ f{1}\times \phi_J$} (A);
+\path (D) edge [bend right = 60]  node[above] {$ f{2}\times \phi_J$} (A);
+\path (B) edge [loop below] node {$\phi_S \times (1-m)$} (C);
+\path (C) edge [loop below] node {$\phi_M \times (1-g)$} (D);
+\path (D) edge [loop below] node {$\phi_L$} (D);
+
+\end{tikzpicture}
+```
